@@ -38,12 +38,22 @@ class DetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnTap = false
     }
-    @objc func shareTapped() {
-        guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
+    
+    
+    @objc func shareTapped() {   // magical piece of code, sheeesh
+        guard let image = imageView.image?.jpegData(compressionQuality: 0.8),
+        let imageName = selectedImage else {
             print("No image found")
             return
         }
-        let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        
+        let imageItem = UIImage(data: image)
+        let textItem = "Check out this image: \(imageName)"
+        
+        let activityItems: [Any] = [imageItem ?? "Unknown" as Any, textItem]
+        
+        
+        let vc = UIActivityViewController(activityItems: activityItems, applicationActivities: [])
         
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)

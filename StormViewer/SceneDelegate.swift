@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  StormViewer
+//  SocialMedia
 //
 //  Created by Y K on 11.07.2023.
 //
