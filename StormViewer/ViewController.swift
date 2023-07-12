@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  StormViewer
+//  Social Media
 //
 //  Created by Y K on 11.07.2023.
 //
